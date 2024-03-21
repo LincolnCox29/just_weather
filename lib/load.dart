@@ -7,20 +7,13 @@ class load extends StatefulWidget {
 
 class _loadState extends State<load> {
 
+  bool dataReceived = false;
+
   @override
   void initState
   (){
     super.initState();
     _getCurrentLocation();
-    try{
-      Timer(const Duration(seconds: 2), () {
-        _getWeatherData();
-      });
-    }catch(e){
-      Timer(const Duration(seconds: 5), () {
-        _getWeatherData();
-      });
-    }
   }
 
   @override
@@ -29,15 +22,21 @@ class _loadState extends State<load> {
       Timer(Duration(seconds: 2), () {
         if(_weatherData == null){
           loadBody();
-        }else{
+        }else if(_weatherData != null){
           try{
-            Map<dynamic,dynamic> arg = _weatherData as Map<dynamic,dynamic>;
+            List<Day>? arg = week(_weatherData!);
             Navigator.pushReplacementNamed(context, '/home', arguments: arg);
           }catch(e){}
         }
       });
     }
+    void _waitCurrentLocation() {
+      if(_position != null && dataReceived == false){
+        _getWeatherData();
+      }
+    }
     loadBody();
+    _waitCurrentLocation();
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -49,7 +48,12 @@ class _loadState extends State<load> {
               height: 100,
               width: 100,
             ),
-            _position != null ? Text(_position.toString()) : const Text('')
+            Column(
+              children: [
+                _position != null ? Text(_position!.latitude.toString()) : const Text(''),
+                _position != null ? Text(_position!.longitude.toString()) : const Text('')
+              ]
+            )
           ],
         )
       ),
@@ -70,11 +74,13 @@ class _loadState extends State<load> {
     Map<dynamic,dynamic>? weatherData;
     if (_position != null){
       weatherData = await httpRequest(
-        'https://api.open-meteo.com/v1/forecast?latitude=${_position!.latitude}&longitude=${_position!.longitude}&hourly=temperature_2m,rain,showers,snowfall,snow_depth,weather_code,cloud_cover,wind_speed_10m&daily=weather_code&wind_speed_unit=ms&timezone=auto&forecast_days=1'
+        'https://api.open-meteo.com/v1/forecast?latitude=${
+          _position!.latitude
+        }&longitude=${
+          _position!.longitude
+        }&hourly=temperature_2m,rain,showers,snowfall,snow_depth,weather_code,cloud_cover,wind_speed_10m&daily=weather_code&wind_speed_unit=ms&timezone=auto'
       );
     }
-    setState(() {
-      _weatherData = weatherData;
-    });
+    _weatherData = weatherData;
   }
 }

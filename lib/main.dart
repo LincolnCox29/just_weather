@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:just_weather/functions%20&%20widgets/objects.dart';
 import 'package:just_weather/home_page.dart';
 import 'functions & widgets/functions.dart';
 

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:just_weather/functions%20&%20widgets/objects.dart';
 import 'functions & widgets/widgets.dart';
 
 class HomePage extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
-    final weatherData = ModalRoute.of(context)!.settings.arguments as Map<dynamic,dynamic>;
+    final List<Day> week = ModalRoute.of(context)!.settings.arguments as List<Day>;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -16,10 +17,13 @@ class HomePage extends StatelessWidget{
       body: Center(
         child:ListView(
           children: <Widget>[
-            WeatherCodeIcon(
-              code: weatherData["daily"]['weather_code'][0]
-            ),
-            Text('')
+            Column(
+              children: [
+                WeatherCodeIcon(
+                  code: week[0].dailyWeatherCode
+                )
+              ]
+            )
           ],
         ),
       ),
