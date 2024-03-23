@@ -1,8 +1,17 @@
 class Day{
-
   int avgTemperature(){
-    return temperatures
-      .reduce((value, element) => value + element)
+    return (temperatures
+      .reduce((value, element) => value + element)/temperatures.length)
+      .round();
+  }
+  String avgWindSpeed(){
+    return (windSpeed
+      .reduce((value, element) => value + element)/windSpeed.length)
+      .toStringAsFixed(2);
+  }
+  int avgCloudCover(){
+    return (cloudCover
+      .reduce((value, element) => value + element)/cloudCover.length)
       .round();
   }
   String date;
