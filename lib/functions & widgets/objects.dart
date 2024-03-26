@@ -20,12 +20,14 @@ class Day{
   List<double> windSpeed;
   List<int> cloudCover;
   int dailyWeatherCode;
+  String location;
   Day(
     this.date,
     this.temperatures,
     this.weatherCodes,
     this.windSpeed,
     this.cloudCover,
-    this.dailyWeatherCode
+    this.dailyWeatherCode,
+    this.location
   );
 }

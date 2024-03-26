@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:just_weather/functions%20&%20widgets/objects.dart';
 
 class WeatherCodeIcon extends StatelessWidget {
 
@@ -7,10 +8,10 @@ class WeatherCodeIcon extends StatelessWidget {
   final double size;
 
   searchIcon(){
-    if (code == 0){
+    if ([0,1].contains(code)){
       return 'clear sky.gif';
     }
-    if ([1,2,3].contains(code)){
+    if ([2,3].contains(code)){
       return 'clouds.gif';
     }
     if ([45,48].contains(code)){
@@ -63,6 +64,93 @@ class RowWithIcon extends StatelessWidget {
           )
         ],
       )
+    );
+  }
+}
+
+class WeekWeatherListView extends StatelessWidget {
+
+  final List<Day> week;
+
+  WeekWeatherListView({required this.week});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: 7,
+      itemBuilder:(context, index) {
+        return Container(
+          width: 90,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.black
+            )
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child : Text(
+                  week[index].date,
+                  style: const TextStyle(
+                    fontSize: 10
+                  ),
+                )
+              ),
+              WeatherCodeIcon(
+                code: week[index].dailyWeatherCode,
+                size: 40,
+              ),
+            ]
+          ),
+        );
+      },
+    );
+  }
+}
+
+class DayWeatherListView extends StatelessWidget {
+
+  final Day day;
+
+  DayWeatherListView({required this.day});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: 24,
+      itemBuilder:(context, index) {
+        return Container(
+          width: 50,
+          height: 80,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.black
+            )
+          ),
+          child: Column(
+            children: [
+              Text(
+                '$index:00',
+                style: const TextStyle(
+                  fontSize: 10
+                ),
+              ),
+              WeatherCodeIcon(
+                code: day.weatherCodes[index],
+                size: 40,
+              ),
+              Text(
+                '${day
+                  .temperatures[index]
+                  .round()}°'
+              )
+            ]
+          ),
+        );
+      },
     );
   }
 }

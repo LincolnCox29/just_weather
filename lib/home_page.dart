@@ -14,8 +14,17 @@ class HomePage extends StatelessWidget{
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('JustWeather'),
-        elevation:10
+        title: Row(
+          children: [
+            const Expanded(
+              child: Text('JustWeather')
+            ),
+            Text(
+              week.first.location
+            )
+          ]
+        ),
+        elevation:10,
       ),
       body: Center(
         child:ListView(
@@ -24,7 +33,7 @@ class HomePage extends StatelessWidget{
               children: [
                 WeatherCodeIcon(
                   code: week.first.weatherCodes[hour],
-                  size: 125,
+                  size: 110,
                 ),
                 Text(
                   '${week
@@ -52,41 +61,7 @@ class HomePage extends StatelessWidget{
                         color: Colors.black
                       )
                     ),
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 24,
-                      itemBuilder:(context, index) {
-                        int weatherCode = week.first.weatherCodes[index];
-                        return Container(
-                          width: 50,
-                          height: 80,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.black
-                            )
-                          ),
-                          child: Column(
-                            children: [
-                              Text(
-                                '$index:00',
-                                style: const TextStyle(
-                                  fontSize: 10
-                                ),
-                              ),
-                              WeatherCodeIcon(
-                                code: weatherCode,
-                                size: 40,
-                              ),
-                              Text(
-                                '${week[0]
-                                  .temperatures[index]
-                                  .round()}°'
-                              )
-                            ]
-                          ),
-                        );
-                      },
-                    )
+                    child: DayWeatherListView(day: week.first)
                   ),
                 ),
                 const Text(
@@ -95,46 +70,69 @@ class HomePage extends StatelessWidget{
                     fontSize: 20
                   ),
                 ),
-                Container(
-                  width: 370,
-                  height: 210,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.black
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child : Container(
+                    width: 370,
+                    height: 210,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 2,
+                        color: Colors.black
+                      )
+                    ),
+                    child: Column(
+                      children: [
+                        RowWithIcon(
+                          imageLink: 'assets/gif/hot.gif', 
+                          text: 'Average temperature: ${week.first.avgTemperature()}°'
+                        ),
+                        RowWithIcon(
+                          imageLink: 'assets/gif/wind.gif',
+                          text: 'Wind speed (now): ${week.first.windSpeed[hour]} m/s'
+                        ),
+                        RowWithIcon(
+                          imageLink: 'assets/gif/wind avg.gif',
+                          text: 'Average wind speed: ${week.first.avgWindSpeed()} m/s'
+                        ),
+                        RowWithIcon(
+                          imageLink: 'assets/gif/cloudy.gif',
+                          text: 'Cloud cover (now): ${week.first.cloudCover[hour]}%'
+                        ),
+                        RowWithIcon(
+                          imageLink: 'assets/gif/cloudy avg.gif',
+                          text: 'Average cloud cover: ${week.first.avgCloudCover()}%'
+                        ),
+                        RowWithIcon(
+                          imageLink: 'assets/gif/date.gif',
+                          text: 'Date: ${
+                            DateTime.now().year.toString()}-${
+                              DateTime.now().month.toString()}-${
+                                DateTime.now().day.toString()}'
+                        )
+                      ],
                     )
                   ),
-                  child: Column(
-                    children: [
-                      RowWithIcon(
-                        imageLink: 'assets/gif/hot.gif', 
-                        text: 'Average temperature: ${week.first.avgTemperature()}°'
-                      ),
-                      RowWithIcon(
-                        imageLink: 'assets/gif/wind.gif',
-                        text: 'Wind speed (now): ${week.first.windSpeed[hour]} m/s'
-                      ),
-                      RowWithIcon(
-                        imageLink: 'assets/gif/wind avg.gif',
-                        text: 'Average wind speed: ${week.first.avgWindSpeed()} m/s'
-                      ),
-                      RowWithIcon(
-                        imageLink: 'assets/gif/cloudy.gif',
-                        text: 'Cloud cover (now): ${week.first.cloudCover[hour]}%'
-                      ),
-                      RowWithIcon(
-                        imageLink: 'assets/gif/cloudy avg.gif',
-                        text: 'Average cloud cover: ${week.first.avgCloudCover()}%'
-                      ),
-                      RowWithIcon(
-                        imageLink: 'assets/gif/date.gif',
-                        text: 'Date: ${
-                          DateTime.now().year.toString()}:${
-                            DateTime.now().month.toString()}:${
-                              DateTime.now().day.toString()}'
+                ),
+                const Text(
+                  'Weather for the week',
+                  style: TextStyle(
+                    fontSize: 20
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16), 
+                  child : Container(
+                    width: 370,
+                    height: 90,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black
                       )
-                    ],
-                  )
-                )
+                    ),
+                    child: WeekWeatherListView(week: week)
+                  ),
+                ),
               ]
             )
           ],
