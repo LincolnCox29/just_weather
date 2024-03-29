@@ -1,11 +1,11 @@
-part of 'main.dart';
+part of 'imports.dart';
 
-class load extends StatefulWidget {
+class Load extends StatefulWidget {
   @override
-  State<load> createState() => _loadState();
+  State<Load> createState() => _LoadState();
 }
 
-class _loadState extends State<load> {
+class _LoadState extends State<Load> {
 
   bool dataReceived = false;
 

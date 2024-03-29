@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:just_weather/functions%20&%20widgets/objects.dart';
-import 'functions & widgets/widgets.dart';
+part of 'imports.dart';
 
 class HomePage extends StatelessWidget{
   const HomePage({super.key});
@@ -32,6 +30,7 @@ class HomePage extends StatelessWidget{
             Column(
               children: [
                 WeatherCodeIcon(
+                  format: 'gif',
                   code: week.first.weatherCodes[hour],
                   size: 110,
                 ),
@@ -45,11 +44,8 @@ class HomePage extends StatelessWidget{
                     fontSize: 50
                   ),
                 ),
-                const Text(
-                  'The weather for today',
-                  style: TextStyle(
-                    fontSize: 20
-                  ),
+                LableText(
+                  text: 'The weather for today'
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16), 
@@ -64,14 +60,11 @@ class HomePage extends StatelessWidget{
                     child: DayWeatherListView(day: week.first)
                   ),
                 ),
-                const Text(
-                  'More information',
-                  style: TextStyle(
-                    fontSize: 20
-                  ),
+                LableText(
+                  text: 'More information'
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   child : Container(
                     width: 370,
                     height: 210,
@@ -114,14 +107,11 @@ class HomePage extends StatelessWidget{
                     )
                   ),
                 ),
-                const Text(
-                  'Weather for the week',
-                  style: TextStyle(
-                    fontSize: 20
-                  ),
+                LableText(
+                  text: 'Weather for the week'
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16), 
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   child : Container(
                     width: 370,
                     height: 90,

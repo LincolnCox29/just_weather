@@ -1,11 +1,6 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:just_weather/functions%20&%20widgets/objects.dart';
-import 'package:just_weather/home_page.dart';
-import 'functions & widgets/functions.dart';
-
-part 'load.dart';
+import 'package:just_weather/load_screen/imports.dart';
+import 'package:just_weather/home_screen/imports.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,12 +16,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        
       ),
       routes: {
-        '/load' : (context) => load(),
+        '/load' : (context) => Load() as Widget,
         '/home' : (context) => HomePage()
       },
-      home: load(),
+      home: Load() as Widget,
     );
   }
 }
