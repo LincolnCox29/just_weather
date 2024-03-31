@@ -58,47 +58,9 @@ class HomePage extends StatelessWidget{
                     )
                   ),
                 ),
-                LableText(
-                  text: 'More information'
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child : Container(
-                    width: 370,
-                    height: 210,
-                    decoration: boxDecorationAsset(),
-                    child: Column(
-                      children: [
-                        RowWithIcon(
-                          imageLink: 'assets/gif/hot.gif', 
-                          text: 'Average temperature: ${week.first.avgTemperature()}°'
-                        ),
-                        RowWithIcon(
-                          imageLink: 'assets/gif/wind.gif',
-                          text: 'Wind speed (now): ${week.first.windSpeed[hour]} m/s'
-                        ),
-                        RowWithIcon(
-                          imageLink: 'assets/gif/wind avg.gif',
-                          text: 'Average wind speed: ${week.first.avgWindSpeed()} m/s'
-                        ),
-                        RowWithIcon(
-                          imageLink: 'assets/gif/cloudy.gif',
-                          text: 'Cloud cover (now): ${week.first.cloudCover[hour]}%'
-                        ),
-                        RowWithIcon(
-                          imageLink: 'assets/gif/cloudy avg.gif',
-                          text: 'Average cloud cover: ${week.first.avgCloudCover()}%'
-                        ),
-                        RowWithIcon(
-                          imageLink: 'assets/gif/date.gif',
-                          text: 'Date: ${
-                            DateTime.now().year.toString()}-${
-                              DateTime.now().month.toString()}-${
-                                DateTime.now().day.toString()}'
-                        )
-                      ],
-                    )
-                  ),
+                MoreInfoWigit(
+                  week: week,
+                  hour: hour,
                 ),
                 LableText(
                   text: 'Weather for the week'
