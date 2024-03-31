@@ -52,12 +52,10 @@ class HomePage extends StatelessWidget{
                   child : Container(
                     width: 370,
                     height: 80,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black
-                      )
-                    ),
-                    child: DayWeatherListView(day: week.first)
+                    decoration: boxDecorationAsset(),
+                    child: DayWeatherListView(
+                      day: week.first
+                    )
                   ),
                 ),
                 LableText(
@@ -68,12 +66,7 @@ class HomePage extends StatelessWidget{
                   child : Container(
                     width: 370,
                     height: 210,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 2,
-                        color: Colors.black
-                      )
-                    ),
+                    decoration: boxDecorationAsset(),
                     child: Column(
                       children: [
                         RowWithIcon(
@@ -115,12 +108,10 @@ class HomePage extends StatelessWidget{
                   child : Container(
                     width: 370,
                     height: 90,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black
-                      )
-                    ),
-                    child: WeekWeatherListView(week: week)
+                    decoration: boxDecorationAsset(),
+                    child: WeekWeatherListView(
+                      week: week
+                    )
                   ),
                 ),
               ]
