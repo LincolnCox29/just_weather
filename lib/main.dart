@@ -3,11 +3,11 @@ import 'package:just_weather/load_screen/imports.dart';
 import 'package:just_weather/home_screen/imports.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
