@@ -21,6 +21,9 @@ class Day{
   List<int> cloudCover;
   int dailyWeatherCode;
   String location;
+  double surfacePressure;
+  int windDirection;
+  int relativeHumidity;
   Day(
     this.date,
     this.temperatures,
@@ -28,6 +31,9 @@ class Day{
     this.windSpeed,
     this.cloudCover,
     this.dailyWeatherCode,
-    this.location
+    this.location,
+    this.surfacePressure,
+    this.windDirection,
+    this.relativeHumidity
   );
 }

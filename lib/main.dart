@@ -15,8 +15,7 @@ class App extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
-        useMaterial3: true,
-        
+        useMaterial3: true, 
       ),
       routes: {
         '/load' : (context) => Load() as Widget,

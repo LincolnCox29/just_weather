@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 
 BoxDecoration boxDecorationAsset() {
   return BoxDecoration(
-    borderRadius: BorderRadius.all(Radius.circular(3)),
+    borderRadius: const BorderRadius.all(
+      Radius.circular(12)
+    ),
+    color: Colors.white,
     border: Border.all(
-      color: Colors.black
+      color: Colors.black12
     )
   );
 }

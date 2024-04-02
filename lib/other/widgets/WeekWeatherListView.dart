@@ -16,11 +16,6 @@ class WeekWeatherListView extends StatelessWidget {
       itemBuilder:(context, index) {
         return Container(
           width: 90,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.black
-            )
-          ),
           child: Column(
             children: [
               Padding(

@@ -15,13 +15,8 @@ class DayWeatherListView extends StatelessWidget {
       itemCount: 24,
       itemBuilder:(context, index) {
         return Container(
-          width: 50,
+          width: 100,
           height: 80,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.black
-            )
-          ),
           child: Column(
             children: [
               Text(

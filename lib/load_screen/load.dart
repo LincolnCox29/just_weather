@@ -78,7 +78,7 @@ class _LoadState extends State<Load> {
           _position!.latitude
         }&longitude=${
           _position!.longitude
-        }&hourly=temperature_2m,rain,showers,snowfall,snow_depth,weather_code,cloud_cover,wind_speed_10m&daily=weather_code&wind_speed_unit=ms&timezone=auto'
+        }&current=relative_humidity_2m,surface_pressure,wind_direction_10m&hourly=temperature_2m,rain,showers,snowfall,snow_depth,weather_code,cloud_cover,wind_speed_10m&daily=weather_code&wind_speed_unit=ms&timezone=auto'
       );
     }
     _weatherData = weatherData;

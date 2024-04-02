@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'dart:math' show pi;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:just_weather/other/functions/BoxDecorationAsset.dart';
@@ -57,16 +56,16 @@ class MoreInfoState extends State<MoreInfoWigit> {
                       text: 'Average temperature: ${_week.first.avgTemperature()}°'
                     ),
                     RowWithIcon(
-                      imageLink: 'assets/gif/wind.gif',
-                      text: 'Wind speed (now): ${_week.first.windSpeed[_hour]} m/s'
-                    ),
-                    RowWithIcon(
                       imageLink: 'assets/gif/wind avg.gif',
                       text: 'Average wind speed: ${_week.first.avgWindSpeed()} m/s'
                     ),
                     RowWithIcon(
                       imageLink: 'assets/gif/cloudy.gif',
                       text: 'Cloud cover (now): ${_week.first.cloudCover[_hour]}%'
+                    ),
+                    RowWithIcon(
+                      imageLink: 'assets/gif/cloudy avg.gif',
+                      text: 'Average cloud cover: ${_week.first.avgCloudCover()}%'
                     ),
                     RowWithIcon(
                       imageLink: 'assets/gif/cloudy avg.gif',
@@ -92,15 +91,11 @@ class MoreInfoState extends State<MoreInfoWigit> {
       child:  Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 16),
+            padding: const EdgeInsets.only(bottom: 8),
             child : Container(
               width: 370,
               height: 50,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black
-                )
-              ),
+              decoration: boxDecorationAsset(),
               child : Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
