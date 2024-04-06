@@ -132,6 +132,47 @@ class HomePage extends StatelessWidget{
                     ]
                   )
                 ),
+                BigLongContainer(
+                  child: Stack(
+                    children: [
+                      Column(
+                        children: [
+                          LableText(
+                            text: 'Sun path diagram'
+                          ),
+                          CustomPaint(
+                            painter: DrawArc(),
+                          ),
+                          Row(
+                            children: [
+                              SunPosition(
+                                week: week, 
+                                isRight: false
+                              ),
+                              SunPosition(
+                                week: week, 
+                                isRight: true
+                              )
+                            ]
+                          )
+                        ]
+                      ),
+                      Container(
+                        padding: const EdgeInsets.only(
+                          top: 110,
+                          bottom: 0,
+                          right: 0,
+                          left: 67
+                        ),
+                        child: Image.asset(
+                          'assets/png/sun.png',
+                          width: 40,
+                          height: 40
+                        ),
+                      )
+                    ]
+                  )
+                ),
                 LongContainer(
                   child: Column(
                     children: [

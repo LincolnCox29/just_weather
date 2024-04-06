@@ -33,7 +33,9 @@ List<Day> week(Map<dynamic,dynamic> weatherData){ //168
     	    weatherData["timezone"],
           weatherData["current"]["surface_pressure"],
           weatherData["current"]["wind_direction_10m"],
-          weatherData["current"]["relative_humidity_2m"]
+          weatherData["current"]["relative_humidity_2m"],
+          weatherData["daily"]['sunrise'][dayCounter],
+          weatherData["daily"]['sunset'][dayCounter],
         )
       );
       counter = 0;

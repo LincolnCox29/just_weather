@@ -47,7 +47,7 @@ class MoreInfoState extends State<MoreInfoWigit> {
               padding: const EdgeInsets.symmetric(vertical: 16),
               child : Container(
                 width: 370,
-                height: 210,
+                height: 175,
                 decoration: boxDecorationAsset(),
                 child: Column(
                   children: [
@@ -62,10 +62,6 @@ class MoreInfoState extends State<MoreInfoWigit> {
                     RowWithIcon(
                       imageLink: 'assets/gif/cloudy.gif',
                       text: 'Cloud cover (now): ${_week.first.cloudCover[_hour]}%'
-                    ),
-                    RowWithIcon(
-                      imageLink: 'assets/gif/cloudy avg.gif',
-                      text: 'Average cloud cover: ${_week.first.avgCloudCover()}%'
                     ),
                     RowWithIcon(
                       imageLink: 'assets/gif/cloudy avg.gif',

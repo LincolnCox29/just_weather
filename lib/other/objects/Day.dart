@@ -24,6 +24,8 @@ class Day{
   double surfacePressure;
   int windDirection;
   int relativeHumidity;
+  String sunrise;
+  String sunset;
   Day(
     this.date,
     this.temperatures,
@@ -34,6 +36,8 @@ class Day{
     this.location,
     this.surfacePressure,
     this.windDirection,
-    this.relativeHumidity
+    this.relativeHumidity,
+    this.sunrise,
+    this.sunset
   );
 }

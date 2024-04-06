@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:just_weather/other/functions/boxDecorationAsset.dart';
 
-class BigContainer extends StatelessWidget {
+abstract class ParentContainer extends StatelessWidget {
 
-  final Widget child; 
-  const BigContainer({super.key, required this.child});
+  final Widget? child; 
+  final double? height;
+  final double? width;
+
+  const ParentContainer({
+    super.key, 
+    required this.child,
+    required this.height,
+    required this.width
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +20,8 @@ class BigContainer extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       child: Container(
         alignment: Alignment.center,
-        width: 200,
-        height: 216,
+        width: width,
+        height: height,
         decoration: boxDecorationAsset(),
         child: child,
       )

@@ -18,8 +18,8 @@ class App extends StatelessWidget {
         useMaterial3: true, 
       ),
       routes: {
-        '/load' : (context) => Load() as Widget,
-        '/home' : (context) => HomePage()
+        '/load' : (context) => Load(),
+        '/home' : (context) => const HomePage()
       },
       home: Load() as Widget,
     );
