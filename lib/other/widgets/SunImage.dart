@@ -25,38 +25,25 @@ class SunImage extends StatelessWidget {
   Map<String,double> positionSwitch(sunset, sunrise){
     double oneDivision = (hourRounding(sunset) - hourRounding(sunrise)) / 5;
     double hour = DateTime.now().hour.toDouble();
-    if(hour.isBetween(oneDivision, oneDivision*4)){
-      return {
-        'top': 110,
-        'left': 67 
-      };
-    }else{
-      if(hour.isBetween(oneDivision*4, oneDivision*5)){
-        return {
-          'top': 70,
-          'left': 95 
-        };
+    List<Map<String,double>> allPositions = [
+      {'top': 110,'left': 67 },
+      {'top': 70,'left': 95 },
+      {'top': 47,'left': 160 },
+      {'top': 70,'left': 223 },
+      {'top': 110,'left': 250}
+    ];
+    for (int i = 4 ; i < 8 ; i++){
+      if(i == 4){
+        if(hour.isBetween(oneDivision, oneDivision*4)){
+          return allPositions[i - 4];
+        }
       }else{
-        if(hour.isBetween(oneDivision*5, oneDivision*6)){
-          return {
-            'top': 47,
-            'left': 160 
-          };
-        }else{
-          if(hour.isBetween(oneDivision*6, oneDivision*7)){
-            return {
-              'top': 70,
-              'left': 223 
-            };
-          }else{
-            return {
-              'top': 110,
-              'left': 250                 
-            };
-          }
+        if(hour.isBetween(oneDivision*i-1, oneDivision*i)){
+          return allPositions[i - 4];
         }
       }
     }
+    return allPositions[4];
   }
 
   @override
