@@ -157,17 +157,12 @@ class HomePage extends StatelessWidget{
                           )
                         ]
                       ),
-                      Container(
-                        padding: const EdgeInsets.only(
-                          top: 110,
-                          bottom: 0,
-                          right: 0,
-                          left: 67
+                      SunImage(
+                        sunrise: week.first.sunrise.substring(
+                          week.first.sunrise.length - 5
                         ),
-                        child: Image.asset(
-                          'assets/png/sun.png',
-                          width: 40,
-                          height: 40
+                        sunset: week.first.sunset.substring(
+                          week.first.sunset.length - 5
                         ),
                       )
                     ]
