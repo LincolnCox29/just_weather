@@ -10,8 +10,8 @@ class LongContainer extends ParentContainer {
     height, 
     width
   }) : super(
-    height: 110,
-    width: 370,
+    height: 0.15,
+    width: 0.9,
     child: child
   );
 }

@@ -10,8 +10,8 @@ class SmallContainer extends ParentContainer {
     height, 
     width
   }) : super(
-    height: 125,
-    width: 125,
+    height: 0.15,
+    width: 0.3,
     child: child
   );
 }

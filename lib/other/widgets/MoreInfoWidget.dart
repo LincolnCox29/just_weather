@@ -5,6 +5,8 @@ import 'package:just_weather/other/functions/BoxDecorationAsset.dart';
 import 'package:just_weather/other/objects/Day.dart';
 import 'package:just_weather/other/widgets/LableText.dart';
 import 'package:just_weather/other/widgets/RowWithIcon.dart';
+import 'package:just_weather/other/widgets/custom_containers/BigLongContainer.dart';
+import 'package:just_weather/other/widgets/custom_containers/LongContainer.dart';
 
 class MoreInfoWigit extends StatefulWidget {
 
@@ -45,10 +47,7 @@ class MoreInfoState extends State<MoreInfoWigit> {
             angle = 90 * pi / 180;
             contant = Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
-              child : Container(
-                width: 370,
-                height: 175,
-                decoration: boxDecorationAsset(),
+              child : BigLongContainer(
                 child: Column(
                   children: [
                     RowWithIcon(
@@ -88,10 +87,7 @@ class MoreInfoState extends State<MoreInfoWigit> {
         children: [
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
-            child : Container(
-              width: 370,
-              height: 50,
-              decoration: boxDecorationAsset(),
+            child : LongContainer(
               child : Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
