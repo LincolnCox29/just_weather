@@ -1,7 +1,6 @@
 import 'dart:math' show pi;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:just_weather/other/functions/BoxDecorationAsset.dart';
 import 'package:just_weather/other/objects/Day.dart';
 import 'package:just_weather/other/widgets/LableText.dart';
 import 'package:just_weather/other/widgets/RowWithIcon.dart';

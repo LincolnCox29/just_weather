@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-extension RangeNum on num {
-  bool isBetween(num a, num b) {
-    return !((a > this && b > this) || (a < this &&  b < this));
-  }
+bool isBetween(double value, double start, double end) {
+  return value >= start && value < end;
 }
 
 // ignore: must_be_immutable
@@ -22,24 +20,28 @@ class SunImage extends StatelessWidget {
     }
   }
   
-  Map<String,double> positionSwitch(sunset, sunrise){
+  Map<String,double> positionSwitch(String sunset, String sunrise, BuildContext context){
     double oneDivision = (hourRounding(sunset) - hourRounding(sunrise)) / 5;
     double hour = DateTime.now().hour.toDouble();
+
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     List<Map<String,double>> allPositions = [
-      {'top': 110,'left': 67 },
-      {'top': 70,'left': 95 },
-      {'top': 47,'left': 160 },
-      {'top': 70,'left': 223 },
-      {'top': 110,'left': 250}
+      {'top': screenHeight / 8,'left': screenWidth / 6.8},
+      {'top': screenHeight / 13,'left': screenWidth / 4.1},
+      {'top': screenHeight / 18,'left': screenWidth / 2.6},
+      {'top': screenHeight / 13,'left': screenWidth / 1.9},
+      {'top': screenHeight / 8,'left': screenWidth / 1.62}
     ];
-    for (int i = 4 ; i < 8 ; i++){
-      if(i == 4){
-        if(hour.isBetween(oneDivision, oneDivision*4)){
-          return allPositions[i - 4];
+    for (int i = 0 ; i < 5 ; i++){
+      if (i == 0) {
+        if (isBetween(hour, oneDivision * i, oneDivision * (i + 1))) {
+          return allPositions[i];
         }
-      }else{
-        if(hour.isBetween(oneDivision*i-1, oneDivision*i)){
-          return allPositions[i - 4];
+      } else {
+        if (isBetween(hour, oneDivision * (i - 1), oneDivision * i)) {
+          return allPositions[i];
         }
       }
     }
@@ -48,7 +50,7 @@ class SunImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Map<String,double> position = positionSwitch(sunset, sunrise);
+    Map<String,double> position = positionSwitch(sunset, sunrise, context);
     return Padding(
       padding: EdgeInsets.only(
         top: position['top']!,
