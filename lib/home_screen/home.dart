@@ -136,9 +136,7 @@ class HomePage extends StatelessWidget{
                       LableText(
                         text: 'Weather for the week'
                       ),
-                      SizedBox(
-                        width: 370,
-                        height: 75,
+                      Expanded(
                         child:  WeekWeatherListView(
                           week: week
                         )
