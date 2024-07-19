@@ -122,47 +122,9 @@ class HomePage extends StatelessWidget{
                       LableText(
                         text: 'The weather for today'
                       ),
-                      SizedBox(
-                        width: 370,
-                        height: 75,
+                      Expanded(
                         child:  DayWeatherListView(
                           day: week.first
-                        ),
-                      )
-                    ]
-                  )
-                ),
-                BigLongContainer(
-                  child: Stack(
-                    children: [
-                      Column(
-                        children: [
-                          LableText(
-                            text: 'Sun path diagram'
-                          ),
-                          CustomPaint(
-                            painter: DrawArc(),
-                          ),
-                          Row(
-                            children: [
-                              SunPosition(
-                                week: week, 
-                                isRight: false
-                              ),
-                              SunPosition(
-                                week: week, 
-                                isRight: true
-                              )
-                            ]
-                          )
-                        ]
-                      ),
-                      SunImage(
-                        sunrise: week.first.sunrise.substring(
-                          week.first.sunrise.length - 5
-                        ),
-                        sunset: week.first.sunset.substring(
-                          week.first.sunset.length - 5
                         ),
                       )
                     ]

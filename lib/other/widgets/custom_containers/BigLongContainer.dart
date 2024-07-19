@@ -12,7 +12,7 @@ class BigLongContainer extends ParentContainer {
     width
   }) : super(
     child: child,
-    height: 0.25,
+    height: 0.26,
     width: 0.9,
   );
 }

@@ -10,8 +10,8 @@ class LableText extends StatelessWidget{
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: const TextStyle(
-        fontSize: 22,
+      style: TextStyle(
+        fontSize: MediaQuery.of(context).size.width * 0.05,
         fontWeight: FontWeight.w200
       ),
     );
