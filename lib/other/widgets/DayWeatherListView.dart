@@ -21,20 +21,20 @@ class DayWeatherListView extends StatelessWidget {
               Text(
                 '$index:00',
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.03
+                  fontSize: 10
                 ),
               ),
               WeatherCodeIcon(
                 format: 'png',
                 code: day.weatherCodes[index],
-                size: MediaQuery.of(context).size.width * 0.1,
+                size: 40,
               ),
               Text(
                 '${day
                   .temperatures[index]
                   .round()}°',
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.03
+                  fontSize: 15
                 ),
               )
             ]
